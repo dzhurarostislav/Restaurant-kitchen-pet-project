@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'kitchen.middleware.RedirectAuthenticatedUsersMiddleware'
 ]
 
 ROOT_URLCONF = 'restaurant_kitchen.urls'
