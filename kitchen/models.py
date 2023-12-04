@@ -13,10 +13,11 @@ class IngredientType(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=255, unique=True)
     type = models.ForeignKey(IngredientType, on_delete=models.CASCADE, related_name="ingredients")
+    quantity = models.IntegerField(blank=True)
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField()
+    years_of_experience = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = "cook"
