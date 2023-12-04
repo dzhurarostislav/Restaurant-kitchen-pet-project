@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+  <div class="container" style="display: flex; align-items: center; justify-content: center">
+    <div class="col-sm-5">
+      <h1>Registration</h1>
+      {% if form.errors %}
+        <p style="color: red"> Invalid credentials</p>
+      {% endif %}
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Sign Up" class="btn btn-primary">
+      </form>
+      <br>
+      <p>Already have an account?<a href="{% url 'login' %}"> Sign In</a></p>
+    </div>
+  </div>
+{% endblock %}
