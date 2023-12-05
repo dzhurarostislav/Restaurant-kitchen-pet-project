@@ -1,14 +1,56 @@
 {% extends "base.html" %}
-
+{% block navbar %}
+  {% include 'includes/navbar.html' %}
+{% endblock %}
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Dishes:</strong> {{ num_dishes }}</li>
-    <li><strong>Cooks:</strong> {{ num_cooks }}</li>
-    <li><strong>Ingredients:</strong> {{ num_ingredients }}</li>
-  </ul>
-  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}</p>
+  <section class="pt-3 pb-4" id="count-stats">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 mx-auto py-3">
+          <br>
+          <br>
+          <h1 class="text-center">Restaurant kitchen project</h1>
+          <p class="text-center">Welcome to Best Kitchen Ever!</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state1">{{ num_dishes }}</span></h1>
+                <h5 class="mt-3">Created dishes</h5>
+                <p class="text-sm font-weight-normal">
+                  From sizzling stir-fries to decadent desserts, our culinary creations are a feast for the senses.
+                  Crafted with precision and passion, each dish is a symphony of flavors, textures, and colors. Whether
+                  you crave the crunch of crispy appetizers, the savory satisfaction of main courses</p>
+              </div>
+            </div>
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state2">{{ num_cooks }}</span></h1>
+                <h5 class="mt-3">Our cooks</h5>
+                <p class="text-sm font-weight-normal">From the sizzle of the grill to the artistry of plating, our cooks
+                  are the architects behind the culinary wonders that grace your table. With skillful hands and a
+                  passion for perfection, they transform raw ingredients into gastronomic masterpieces that transcend
+                  the ordinary</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary" id="state3">{{ num_ingredients }}</h1>
+                <h5 class="mt-3">Ingredients</h5>
+                <p class="text-sm font-weight-normal">
+                  In the realm of culinary alchemy, our chefs meticulously select and fuse an array of premium
+                  ingredients to conjure dishes that dance on your taste buds. Like a seasoned developer carefully
+                  choosing the right components for a flawless user interface</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

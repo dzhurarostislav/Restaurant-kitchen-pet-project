@@ -1,9 +1,77 @@
-body {
-    padding: 0;
-    margin: 0 auto;
-}
-
 .container-fluid {
     padding: 0;
     margin: 0 auto;
 }
+
+.page-header {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: 50%;
+}
+
+.min-vh-75 {
+  min-height: 75vh !important;
+}
+
+.bg-gradient-primary {
+  background-image: linear-gradient(195deg, #747b8a 0%, #495361 100%);
+}
+
+.mt-n5 {
+  margin-top: -3rem !important;
+}
+
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem !important;
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.text-gradient.text-primary {
+  background-image: linear-gradient(195deg, #EC407A, #D81B60);
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.top-3 {
+  top: 3% !important;
+}
+
+.font-weight-normal {
+  font-weight: 400 !important;
+}
+
