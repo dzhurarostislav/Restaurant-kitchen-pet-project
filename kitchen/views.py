@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import CookCreationForm
+from kitchen.forms import CookCreationForm, CookUpdateForm
 from kitchen.models import Dish, Cook, Ingredient
 
 @login_required
@@ -38,8 +38,21 @@ class CookCreateView(generic.CreateView):
         return response
 
 
-class CookListView(generic.ListView):
+class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     context_object_name = "cook_list"
     template_name = "kitchen/cooks-list.html"
     paginate_by = 5
+
+
+class CookDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Cook
+    context_object_name = "cook_detail"
+    template_name = "kitchen/cook-detail.html"
+
+
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    form_class = CookUpdateForm
+    template_name = "kitchen/cook-update.html"
+    success_url = reverse_lazy("kitchen:cooks-list")

@@ -17,13 +17,19 @@
     </thead>
     <tbody>
     {% for cook in cook_list %}
-        <tr class="">
-          <th scope="row">{{ cook.id }}</th>
-          <td><a href="#">{{ cook.username }} {% if user.id == cook.id %}(me){% endif %}</a></td>
-          <td>{{ cook.first_name }}</td>
-          <td>{{ cook.last_name }}</td>
-          <td>{{ cook.years_of_experience }}</td>
-        </tr>
+      <tr class="">
+        <th scope="row">{{ cook.id }}</th>
+        <td><a class="text-gradient text-primary"
+               href="{% if cook.id == user.id %}{% url 'kitchen:cook-update' user.id %}
+                     {% else %} {% url 'kitchen:cook-detail' cook.id %}{% endif %}">{{ cook.username }}
+          {% if user.id == cook.id %}
+            (me){% endif %}</a></td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+        <td>{{ cook.years_of_experience }}</td>
+      </tr>
+    {% empty %}
+      <p>No cooks!</p>
     {% endfor %}
     </tbody>
   </table>
