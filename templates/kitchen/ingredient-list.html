@@ -5,10 +5,38 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container" >
+  <div class="container">
     <div class="row" style="justify-content: space-between">
       <h2>All available ingredients in our kitchen</h2>
-      <a href="{% url 'kitchen:ingredient-create' %}"><input type="button" class="btn btn-primary" value="Add new ingredient"></a>
+      <a href="{% url 'kitchen:ingredient-create' %}"><input type="button" class="btn btn-primary"
+                                                             value="Add new ingredient"></a>
     </div>
+  </div>
+  <br>
+  <div class="table-container">
+    <table class="table" id="ingredient-table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Type of ingredient</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for ingredient in ingredient_list %}
+        <tr class="">
+          <th scope="row">{{ ingredient.id }}</th>
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.quantity }}</td>
+          <td>{{ ingredient.type }}</td>
+          <td><a href="#" class="text-gradient text-primary">edit</a></td>
+        </tr>
+      {% empty %}
+        <p>No cooks!</p>
+      {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock %}

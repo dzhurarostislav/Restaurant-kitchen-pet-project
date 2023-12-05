@@ -75,3 +75,18 @@
   font-weight: 400 !important;
 }
 
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#ingredient-table {
+  table-layout: fixed;
+}
+
+#ingredient-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}

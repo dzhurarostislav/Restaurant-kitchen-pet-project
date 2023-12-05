@@ -63,7 +63,7 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     context_object_name = "ingredient_list"
     template_name = "kitchen/ingredient-list.html"
-    queryset = Ingredient.objects.all().select_related("type__name")
+    queryset = Ingredient.objects.all().select_related("type")
     paginate_by = 5
 
 
