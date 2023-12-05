@@ -9,11 +9,14 @@ class DishType(models.Model):
 class IngredientType(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    quantity = models.IntegerField(blank=True, null=True)
     type = models.ForeignKey(IngredientType, on_delete=models.CASCADE, related_name="ingredients")
-    quantity = models.IntegerField(blank=True)
 
 
 class Cook(AbstractUser):

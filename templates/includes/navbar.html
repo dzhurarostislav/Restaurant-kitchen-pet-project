@@ -1,18 +1,22 @@
 {% if user.is_authenticated %}
   <nav class="navbar navbar-light">
-    <span class="navbar-brand mb-0 h1">User: <a class="text-gradient text-primary" href="{% url 'kitchen:cook-update' user.ig %}">{{ user.get_username }}</a></span>
-    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="{% url 'kitchen:cooks-list' %}">Cooks</a></span>
+    <span class="navbar-brand mb-0 h1">User: <a class="text-gradient text-primary"
+                                                href="{% url 'kitchen:cook-update' user.id %}">{{ user.get_username }}</a></span>
+    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary"
+                                          href="{% url 'kitchen:cooks-list' %}">Cooks</a></span>
     <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="#">Dishes</a></span>
-    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="#">Ingredients</a></span>
+    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="{% url 'kitchen:ingredient-list' %}">Ingredients</a></span>
     <nav class="navbar navbar-light">
-      <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="{% url 'logout' %}?next={{ request.path }}">Logout</a></span>
+      <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary"
+                                            href="{% url 'logout' %}?next={{ request.path }}">Logout</a></span>
     </nav>
   </nav>
 {% else %}
   <nav class="navbar navbar-light">
     <span class="navbar-brand mb-0 h1">Navbar</span>
     <nav class="navbar navbar-light">
-      <span class="navbar-brand mb-0 h1 "><a class="text-gradient text-primary" href="{% url 'login' %}?next={{ request.path }}">Login</a></span>
+      <span class="navbar-brand mb-0 h1 "><a class="text-gradient text-primary"
+                                             href="{% url 'login' %}?next={{ request.path }}">Login</a></span>
     </nav>
   </nav>
 {% endif %}

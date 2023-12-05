@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
+
 {% block navbar %}
   {% include "includes/navbar.html" %}
 {% endblock %}
+
 {% block content %}
-  <div class="col-sm-5">
-    <h1>Update my info</h1>
+  <div class="col-sm-6">
+    <h2>Add new ingredient</h2>
     <form action="" method="post" novalidate>
       {% csrf_token %}
       {{ form|crispy }}
-
-      <input type="submit" value="Submit" class="btn btn-primary">
+      <input type="submit" class="btn btn-success" value="Add">
     </form>
   </div>
 {% endblock %}

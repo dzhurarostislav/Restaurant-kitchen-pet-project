@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+  {% include "includes/navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container" >
+    <div class="row" style="justify-content: space-between">
+      <h2>All available ingredients in our kitchen</h2>
+      <a href="{% url 'kitchen:ingredient-create' %}"><input type="button" class="btn btn-primary" value="Add new ingredient"></a>
+    </div>
+  </div>
+{% endblock %}

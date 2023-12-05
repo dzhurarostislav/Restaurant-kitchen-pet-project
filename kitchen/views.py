@@ -7,7 +7,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.forms import CookCreationForm, CookUpdateForm
-from kitchen.models import Dish, Cook, Ingredient
+from kitchen.models import Dish, Cook, Ingredient, IngredientType
+
 
 @login_required
 def index(request: HttpRequest) -> HttpResponse:
@@ -56,3 +57,23 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = CookUpdateForm
     template_name = "kitchen/cook-update.html"
     success_url = reverse_lazy("kitchen:cooks-list")
+
+
+class IngredientListView(LoginRequiredMixin, generic.ListView):
+    model = Ingredient
+    context_object_name = "ingredient_list"
+    template_name = "kitchen/ingredient-list.html"
+    queryset = Ingredient.objects.all().select_related("type__name")
+    paginate_by = 5
+
+
+class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Ingredient
+    template_name = "kitchen/ingredient-create.html"
+    success_url = reverse_lazy("kitchen:ingredient-list")
+    fields = "__all__"
+
+    def get_form(self, form_class: object = None) -> object:
+        form = super().get_form(form_class)
+        form.fields["quantity"].help_text = "This could be gr, kg, pieces, etc"
+        return form
