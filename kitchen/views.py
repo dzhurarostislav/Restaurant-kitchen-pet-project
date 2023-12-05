@@ -36,3 +36,10 @@ class CookCreateView(generic.CreateView):
         login(self.request, self.object)
 
         return response
+
+
+class CookListView(generic.ListView):
+    model = Cook
+    context_object_name = "cook_list"
+    template_name = "kitchen/cooks-list.html"
+    paginate_by = 5
