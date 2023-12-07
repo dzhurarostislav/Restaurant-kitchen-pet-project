@@ -64,7 +64,7 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "ingredient_list"
     template_name = "kitchen/ingredient-list.html"
     queryset = Ingredient.objects.all().select_related("type")
-    paginate_by = 5
+    paginate_by = 10
 
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
@@ -77,3 +77,10 @@ class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
         form = super().get_form(form_class)
         form.fields["quantity"].help_text = "This could be gr, kg, pieces, etc"
         return form
+
+
+class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Ingredient
+    template_name = "kitchen/ingredient-create.html"
+    success_url = reverse_lazy("kitchen:ingredient-list")
+    fields = "__all__"

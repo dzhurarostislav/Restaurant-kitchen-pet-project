@@ -31,7 +31,7 @@
           <td>{{ ingredient.name }}</td>
           <td>{{ ingredient.quantity }}</td>
           <td>{{ ingredient.type }}</td>
-          <td><a href="#" class="text-gradient text-primary">edit</a></td>
+          <td><a href="{% url 'kitchen:ingredient-update' ingredient.pk %}" class="text-gradient text-primary">edit</a></td>
         </tr>
       {% empty %}
         <p>No cooks!</p>
