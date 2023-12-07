@@ -66,6 +66,20 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     queryset = Ingredient.objects.all().select_related("type")
     paginate_by = 10
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        selected_type = self.request.GET.get('ingredient_type')
+
+        if selected_type:
+            queryset = queryset.filter(type__name=selected_type).select_related("type")
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['selected_type'] = self.request.GET.get('ingredient_type')
+        return context
+
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
