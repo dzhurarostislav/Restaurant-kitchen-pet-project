@@ -26,3 +26,12 @@ class CookUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
         fields = ("first_name", "last_name", "email", "years_of_experience")
+
+
+class DishOrderingForm(forms.Form):
+    ORDER_CHOICES = [
+        ('price_asc', 'Price (Low to High)'),
+        ('price_desc', 'Price (High to Low)'),
+    ]
+
+    ordering = forms.ChoiceField(choices=ORDER_CHOICES, required=False)

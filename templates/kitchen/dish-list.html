@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 {% load static %}
 
 {% block navbar %}
@@ -8,8 +9,12 @@
 {% block content %}
   <div class="container">
     <div class="row" style="justify-content: space-between">
-      <h1>All available dishes</h1>
-      <a href="{% url 'kitchen:dish-create' %}"><input type="button" class="btn btn-primary"
+      <h1 style="padding-bottom: 20px">All available dishes</h1>
+      <form method="get" action="{% url 'kitchen:dish-list' %}" class="form-inline" style="padding-bottom: 20px">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success" style="margin-left: 6px">Apply</button>
+      </form>
+      <a href="{% url 'kitchen:dish-create' %}"><input type="button" class="btn btn-primary" style="margin-top: 7px"
                                                        value="Add new dish"></a>
     </div>
   </div>
@@ -21,7 +26,8 @@
         <img src="{% static 'img/dishes.jpg' %}" alt="" class="inline-image">
         <div class="post-content">
           <h2>{{ dish.name }}</h2>
-          <p>{{ dish.description|slice:":300" }} <a href="#">Continue read</a></p>
+          <p>{{ dish.description|slice:":300" }} <a href="{% url 'kitchen:dish-detail' dish.id %}">View instructions</a>
+          </p>
           <strong class="post-meta">Price {{ dish.price }}$
             | {{ dish.dish_type }}</strong>
         </div>

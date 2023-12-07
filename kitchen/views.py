@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import CookCreationForm, CookUpdateForm
+from kitchen.forms import CookCreationForm, CookUpdateForm, DishOrderingForm
 from kitchen.models import Dish, Cook, Ingredient, IngredientType
 
 
@@ -105,6 +105,23 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     template_name = "kitchen/dish-list.html"
     queryset = Dish.objects.select_related("dish_type").all()
     paginate_by = 5
+    form_class = DishOrderingForm
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        ordering = self.request.GET.get('ordering', None)
+
+        if ordering == 'price_asc':
+            queryset = queryset.order_by('price')
+        elif ordering == 'price_desc':
+            queryset = queryset.order_by('-price')
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.form_class(self.request.GET)
+        return context
 
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):

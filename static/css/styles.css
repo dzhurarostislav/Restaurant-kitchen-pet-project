@@ -4,90 +4,90 @@
 }
 
 .page-header {
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-position: 50%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50%;
 }
 
 .min-vh-75 {
-  min-height: 75vh !important;
+    min-height: 75vh !important;
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(195deg, #747b8a 0%, #495361 100%);
+    background-image: linear-gradient(195deg, #747b8a 0%, #495361 100%);
 }
 
 .mt-n5 {
-  margin-top: -3rem !important;
+    margin-top: -3rem !important;
 }
 
 .pt-3 {
-  padding-top: 1rem !important;
+    padding-top: 1rem !important;
 }
 
 .pb-4 {
-  padding-bottom: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
 }
 
 .mx-auto {
-  margin-right: auto !important;
-  margin-left: auto !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
 }
 
 .py-3 {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 
 .position-relative {
-  position: relative !important;
+    position: relative !important;
 }
 
 .text-gradient {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  z-index: 1;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
 }
 
 .text-gradient.text-primary {
-  background-image: linear-gradient(195deg, #EC407A, #D81B60);
+    background-image: linear-gradient(195deg, #EC407A, #D81B60);
 }
 
 .text-center {
-  text-align: center !important;
+    text-align: center !important;
 }
 
 .mt-3 {
-  margin-top: 1rem !important;
+    margin-top: 1rem !important;
 }
 
 .top-3 {
-  top: 3% !important;
+    top: 3% !important;
 }
 
 .font-weight-normal {
-  font-weight: 400 !important;
+    font-weight: 400 !important;
 }
 
 .table-container {
-  overflow-y: auto;
+    overflow-y: auto;
 }
 
 #ingredient-table {
-  table-layout: fixed;
+    table-layout: fixed;
 }
 
 #ingredient-table thead {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .post-container {
@@ -125,4 +125,9 @@ p {
     margin-right: 10px;
     max-width: 300px;
     max-height: 170px;
+}
+
+.img-detail {
+    max-width: 600px;
+    max-height: 300px;
 }
