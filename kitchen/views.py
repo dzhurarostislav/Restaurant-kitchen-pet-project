@@ -104,6 +104,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     template_name = "kitchen/dish-list.html"
     queryset = Dish.objects.select_related("dish_type").all()
+    paginate_by = 5
 
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
@@ -111,3 +112,8 @@ class DishCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "kitchen/dish-create.html"
     success_url = reverse_lazy("kitchen:dish-list")
     fields = "__all__"
+
+
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Dish
+    template_name = "kitchen/dish-detail.html"

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block navbar %}
   {% include "includes/navbar.html" %}
@@ -11,5 +12,20 @@
       <a href="{% url 'kitchen:dish-create' %}"><input type="button" class="btn btn-primary"
                                                        value="Add new dish"></a>
     </div>
+  </div>
+  <div class="post-container">
+    {% for dish in dish_list %}
+      <div class="image">
+      </div>
+      <div class="post">
+        <img src="{% static 'img/dishes.jpg' %}" alt="" class="inline-image">
+        <div class="post-content">
+          <h2>{{ dish.name }}</h2>
+          <p>{{ dish.description|slice:":300" }} <a href="#">Continue read</a></p>
+          <strong class="post-meta">Price {{ dish.price }}$
+            | {{ dish.dish_type }}</strong>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}
