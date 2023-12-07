@@ -4,7 +4,8 @@
                                                 href="{% url 'kitchen:cook-update' user.id %}">{{ user.get_username }}</a></span>
     <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary"
                                           href="{% url 'kitchen:cooks-list' %}">Cooks</a></span>
-    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="#">Dishes</a></span>
+    <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary"
+                                          href="{% url 'kitchen:dish-list' %}">Dishes</a></span>
     <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary" href="{% url 'kitchen:ingredient-list' %}">Ingredients</a></span>
     <nav class="navbar navbar-light">
       <span class="navbar-brand mb-0 h1"><a class="text-gradient text-primary"

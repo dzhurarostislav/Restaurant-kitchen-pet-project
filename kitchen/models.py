@@ -5,6 +5,9 @@ from django.contrib.auth.models import AbstractUser
 class DishType(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class IngredientType(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -17,6 +20,9 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=255, unique=True)
     quantity = models.IntegerField(blank=True, null=True)
     type = models.ForeignKey(IngredientType, on_delete=models.CASCADE, related_name="ingredients")
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Cook(AbstractUser):

@@ -98,3 +98,16 @@ class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "kitchen/ingredient-create.html"
     success_url = reverse_lazy("kitchen:ingredient-list")
     fields = "__all__"
+
+
+class DishListView(LoginRequiredMixin, generic.ListView):
+    model = Dish
+    template_name = "kitchen/dish-list.html"
+    queryset = Dish.objects.select_related("dish_type").all()
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    template_name = "kitchen/dish-create.html"
+    success_url = reverse_lazy("kitchen:dish-list")
+    fields = "__all__"
