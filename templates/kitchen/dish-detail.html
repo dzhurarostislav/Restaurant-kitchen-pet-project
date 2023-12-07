@@ -11,7 +11,11 @@
       <img src="{% static 'img/dishes.jpg' %}" alt="" class="img-detail">
     </div>
     <div class="col-lg-8">
-      <h1 style="text-align: center; margin-bottom: 40px">{{ dish.name }}</h1>
+      <div style="display: flex; justify-content: space-between">
+        <h1 style="text-align: center; margin-bottom: 40px">{{ dish.name }}</h1>
+        <a href="{% url 'kitchen:dish-update' dish.id %}"><input type="button" class="btn btn-success" value="Update dish"
+                           style="max-height: 40px; margin-top: 10px"></a>
+      </div>
       <h5 style="text-align: center; font-weight: normal"> {{ dish.description }}</h5>
     </div>
   </div>

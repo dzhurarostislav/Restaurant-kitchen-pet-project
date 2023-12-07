@@ -134,3 +134,16 @@ class DishCreateView(LoginRequiredMixin, generic.CreateView):
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
     template_name = "kitchen/dish-detail.html"
+
+
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Dish
+    template_name = "kitchen/dish-create.html"
+    fields = "__all__"
+
+    def get_success_url(self) -> str:
+        return reverse_lazy(
+            "kitchen:dish-detail",
+            kwargs={"pk": self.object.pk}
+        )
+
