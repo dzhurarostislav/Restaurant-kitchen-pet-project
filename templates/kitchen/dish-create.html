@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="col-sm-6" style="padding-bottom: 100px;">
-    <h2>{{ object|yesno:"Update,Add" }} new dish</h2>
+    <h2>{{ object|yesno:"Update,Add" }} dish</h2>
     <form action="" method="post" novalidate>
       {% csrf_token %}
       {{ form|crispy }}

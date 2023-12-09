@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.forms import CookCreationForm, CookUpdateForm, DishOrderingForm
-from kitchen.models import Dish, Cook, Ingredient, IngredientType
+from kitchen.models import Dish, Cook, Ingredient
 
 
 @login_required
