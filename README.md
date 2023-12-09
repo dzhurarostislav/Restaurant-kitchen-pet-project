@@ -1,6 +1,8 @@
 # Restaurant-kitchen-pet-project
-Website for improving the speed and quality of work in the kitchen between cooks
+
+# Setup django project on different platforms
 Starting a Django project from a GitHub repository on different platforms involves a few general steps. Here's a step-by-step guide that you can follow for Windows, macOS, and Linux:
+
 
 Prerequisites:
 Git: Make sure Git is installed on your system. You can download it from https://git-scm.com/.
@@ -15,6 +17,7 @@ bash
 Copy code
 git clone https://github.com/username/repository.git
 Replace https://github.com/username/repository.git with the actual URL of the GitHub repository you want to clone.
+
 
 2. Create a Virtual Environment (Optional but Recommended):
 Navigate into the project directory and create a virtual environment. Virtual environments help isolate dependencies for different projects.
@@ -35,6 +38,7 @@ On macOS/Linux:
 bash
 Copy code
 source venv/bin/activate
+
 3. Install Dependencies:
 Install the project dependencies using pip:
 
@@ -42,6 +46,7 @@ bash
 Copy code
 pip install -r requirements.txt
 If there's no requirements.txt file, you might need to check the project documentation or source code to identify the required dependencies.
+
 
 4. Configure Database:
 Django projects often require a database. Configure your database settings in the settings.py file. You might need to set up a new database and apply migrations:
