@@ -32,6 +32,9 @@ class Cook(AbstractUser):
         verbose_name = "cook"
         verbose_name_plural = "cooks"
 
+    def __str__(self) -> str:
+        return f"{self.username} ({self.first_name} {self.last_name})"
+
 
 class Dish(models.Model):
     name = models.CharField(max_length=255)
@@ -40,3 +43,6 @@ class Dish(models.Model):
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredient, related_name="dishes")
     cooks = models.ManyToManyField(Cook, related_name="dishes")
+
+    def __str__(self) -> str:
+        return self.name
