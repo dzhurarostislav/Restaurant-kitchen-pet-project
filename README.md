@@ -1,5 +1,9 @@
 # Restaurant-kitchen-pet-project
-
+# Run preloaded data
+ run python manage.py loaddata my_fixture.json to load data from fixture to database
+ Use default credentials to login into app:
+ User123
+ Gferh12SDe
 # Setup django project on different platforms
 Starting a Django project from a GitHub repository on different platforms involves a few general steps. Here's a step-by-step guide that you can follow for Windows, macOS, and Linux:
 
