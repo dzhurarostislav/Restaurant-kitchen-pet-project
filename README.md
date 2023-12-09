@@ -1,6 +1,7 @@
 # Restaurant-kitchen-pet-project
 # Run preloaded data
- run python manage.py loaddata my_fixture.json to load data from fixture to database
+ run python manage.py loaddata my_fixture.json to load data from fixture to database.
+ 
  Use default credentials to login into app:
  
  User123
