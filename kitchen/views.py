@@ -68,7 +68,7 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        selected_type = self.request.GET.get('ingredient_type')
+        selected_type = self.request.GET.get("ingredient_type")
 
         if selected_type:
             queryset = queryset.filter(type__name=selected_type).select_related("type")
@@ -77,7 +77,7 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['selected_type'] = self.request.GET.get('ingredient_type')
+        context["selected_type"] = self.request.GET.get("ingredient_type")
         return context
 
 
@@ -103,24 +103,24 @@ class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     template_name = "kitchen/dish-list.html"
-    queryset = Dish.objects.select_related("dish_type").all()
+    queryset = Dish.objects.select_related("dish_type")
     paginate_by = 5
     form_class = DishOrderingForm
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        ordering = self.request.GET.get('ordering', None)
+        ordering = self.request.GET.get("ordering", None)
 
-        if ordering == 'price_asc':
-            queryset = queryset.order_by('price')
-        elif ordering == 'price_desc':
-            queryset = queryset.order_by('-price')
+        if ordering == "price_asc":
+            queryset = queryset.order_by("price")
+        elif ordering == "price_desc":
+            queryset = queryset.order_by("-price")
 
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.form_class(self.request.GET)
+        context["form"] = self.form_class(self.request.GET)
         return context
 
 
@@ -142,8 +142,4 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     fields = "__all__"
 
     def get_success_url(self) -> str:
-        return reverse_lazy(
-            "kitchen:dish-detail",
-            kwargs={"pk": self.object.pk}
-        )
-
+        return reverse_lazy("kitchen:dish-detail", kwargs={"pk": self.object.pk})

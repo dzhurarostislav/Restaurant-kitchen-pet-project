@@ -10,8 +10,9 @@ class CookCreationForm(UserCreationForm):
         super().__init__(*args, **kwargs)
 
         self.fields["password2"].help_text = None
-        self.fields["years_of_experience"].help_text = \
-            "Number of years worked in the kitchen"
+        self.fields[
+            "years_of_experience"
+        ].help_text = "Number of years worked in the kitchen"
 
     class Meta:
         model = Cook
@@ -30,8 +31,8 @@ class CookUpdateForm(forms.ModelForm):
 
 class DishOrderingForm(forms.Form):
     ORDER_CHOICES = [
-        ('price_asc', 'Price (Low to High)'),
-        ('price_desc', 'Price (High to Low)'),
+        ("price_asc", "Price (Low to High)"),
+        ("price_desc", "Price (High to Low)"),
     ]
 
     ordering = forms.ChoiceField(choices=ORDER_CHOICES, required=False)
