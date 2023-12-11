@@ -59,7 +59,11 @@ The development server should now be running. Open a web browser and go to http:
 Generate a new secret key for the project and update the SECRET_KEY setting in settings.py.
 
 # 3. Run preloaded data
- run python manage.py loaddata my_fixture.json to load data from fixture to database.
+ run
+ ```
+python manage.py loaddata my_fixture.json
+```
+ to load data from fixture to database.
  
 # Use default credentials to login into app:
 
