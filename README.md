@@ -1,4 +1,7 @@
-# Restaurant-kitchen-pet-project
+# Restaurant-kitchen-pet-project now deployed to render
+Check it out!
+
+https://restaurant-kitchen-0cd1.onrender.com/
 # 1. General info
 This project was created for educational purposes to better familiarize yourself with the Django web framework. The site includes several models such as cooks, dishes and ingredients, allows you to create these entities and edit them, the site also has registration and authorization. The User(cook) model is implemented using the built-in AbstractUser model.
 
