@@ -48,3 +48,7 @@ class Dish(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    class Meta:
+        verbose_name = "Dish"
+        verbose_name_plural = "Dishes"
