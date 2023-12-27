@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navbar %}
+  {% include "includes/navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-4">
+      <img src="{% static 'img/dishes.jpg' %}" alt="" class="img-detail">
+    </div>
+    <div class="col-lg-8">
+      <div style="display: flex; justify-content: space-between">
+        <h1 style="text-align: center; margin-bottom: 40px">{{ dish.name }}</h1>
+        <a href="{% url 'kitchen:dish-update' dish.id %}"><input type="button" class="btn btn-success" value="Update dish"
+                           style="max-height: 40px; margin-top: 10px"></a>
+      </div>
+      <h5 style="text-align: center; font-weight: normal"> {{ dish.description }}</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 style="text-align: center; margin-top: 30px;">Ingredients needed for the dish</h2>
+      <ul>
+        {% for ingredient in dish.ingredients.all %}
+          <li>{{ ingredient.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-lg-12" style="margin-bottom: 50px">
+      <h2 style="text-align: center; margin-top: 30px;">Chefs who can make a dish</h2>
+      <ul>
+        {% for cook in dish.cooks.all %}
+          <li>{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

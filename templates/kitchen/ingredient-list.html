@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+  {% include "includes/navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row" style="justify-content: space-between">
+      <h2>All available ingredients in our kitchen</h2>
+      <form method="get" action="{% url 'kitchen:ingredient-list' %}" id="filter-form" class="inline">
+        <div class="form-inline">
+          <label for="ingredient-type" style="margin-right: 5px">Select Type:</label>
+          <select id="ingredient-type" name="ingredient_type" class="form-control" style="margin-right: 5px">
+            <option value="">All</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="meat">Meat</option>
+            <option value="fruits">Fruits</option>
+            <option value="spices">Spices</option>
+            <option value="mushrooms">Mushrooms</option>
+            <option value="berries">Berries</option>
+            <option value="fish">Fish</option>
+          </select>
+          <input type="submit" class="btn btn-primary" value="Filter">
+        </div>
+      </form>
+      <a href="{% url 'kitchen:ingredient-create' %}"><input type="button" class="btn btn-primary"
+                                                             value="Add new ingredient"></a>
+    </div>
+  </div>
+  <br>
+  <div class="table-container">
+    <table class="table" id="ingredient-table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Type of ingredient</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for ingredient in ingredient_list %}
+        <tr>
+          <th scope="row">{{ ingredient.id }}</th>
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.quantity }}</td>
+          <td>{{ ingredient.type }}</td>
+          <td><a href="{% url 'kitchen:ingredient-update' ingredient.pk %}" class="text-gradient text-primary">edit</a>
+          </td>
+        </tr>
+      {% empty %}
+        <p>No ingredients!</p>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
